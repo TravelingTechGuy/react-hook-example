@@ -1,28 +1,18 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Time from './Time';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+export default () => {
+  const defaultLocale = 'en-US';
+  let [locale, setLocale] = useState(defaultLocale);
+  return (
+    <div>
+      <select onChange={e => setLocale(e.target.value)} defaultValue={defaultLocale}>
+        <option value='en-US'>en-US</option>
+        <option value='en-GB'>en-GB</option>
+        <option value='he-IL'>he-IL</option>
+        <option value='ar-EG'>ar-EG</option>
+      </select>&nbsp;
+      <Time locale={locale}/>
+    </div>
+  );
 }
-
-export default App;
