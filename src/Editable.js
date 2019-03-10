@@ -17,7 +17,7 @@ export default ({ label, initialValue, onChange }) => {
           {label}
           <input
             type="text"
-            value={value}
+            value={value === initialValue ? '' : value}
             onChange={e => setValue(e.target.value)}
           />
         </label>
