@@ -1,18 +1,18 @@
 import React, {useState} from 'react';
+import Locale from './Locale'
 import Time from './Time';
+import Editable from './Editable';
 
 export default () => {
   const defaultLocale = 'en-US';
   let [locale, setLocale] = useState(defaultLocale);
   return (
     <div>
-      <select onChange={e => setLocale(e.target.value)} defaultValue={defaultLocale}>
-        <option value='en-US'>en-US</option>
-        <option value='en-GB'>en-GB</option>
-        <option value='he-IL'>he-IL</option>
-        <option value='ar-EG'>ar-EG</option>
-      </select>&nbsp;
+      <Locale defaultLocale={defaultLocale} onChange={setLocale} />
+      &nbsp;
       <Time locale={locale}/>
+      <br />
+      <Editable label="Edit content:" initialValue="Hello" onValueChanged={console.log}/>
     </div>
   );
 }

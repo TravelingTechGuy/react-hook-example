@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 
-export default (props = {locale: 'en-US'}) => {
-  const getTime = () => (new Date()).toLocaleTimeString(props.locale);
+export default ({locale = 'en-US'}) => {
+  const getTime = () => (new Date()).toLocaleTimeString(locale);
   const [time, setTime] = useState(getTime());
   let interval;
 
